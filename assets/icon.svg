@@ -1,0 +1,23 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Westbound app icon: a gold mountain range forming a W beneath a rising sun on pine green">
+  <title>Westbound App Icon</title>
+  <desc>A screen-print emblem: a three-peak gold mountain range whose silhouette forms a W, with cream snowcaps and a rust drop-shadow, beneath a rising goldenrod sun, on a pine-green field.</desc>
+
+  <!-- Field (full-bleed; iOS applies the rounded mask) -->
+  <rect width="1024" height="1024" fill="#2E4A3A"/>
+
+  <!-- Rising sun -->
+  <circle cx="512" cy="310" r="82" fill="#E0A72E"/>
+
+  <!-- Mountain range — rust drop-shadow (bottom-right, on-brand) -->
+  <path d="M180 745 L333 400 L439 612 L512 453 L585 612 L691 400 L844 745 Z"
+        fill="#A83E1E" transform="translate(18,20)"/>
+
+  <!-- Mountain range — goldenrod, silhouette forms a W -->
+  <path d="M180 745 L333 400 L439 612 L512 453 L585 612 L691 400 L844 745 Z"
+        fill="#E0A72E"/>
+
+  <!-- Cream snowcaps -->
+  <path d="M333 400 L299 468 L367 468 Z" fill="#F3E7CE"/>
+  <path d="M512 453 L484 512 L540 512 Z" fill="#F3E7CE"/>
+  <path d="M691 400 L657 468 L725 468 Z" fill="#F3E7CE"/>
+</svg>
