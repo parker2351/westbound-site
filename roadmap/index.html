@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap · Westbound</title>
+<meta name="description" content="Where the Westbound iPhone app stands today, and what's coming next.">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<style>
+  /* Westbound public roadmap. Palette: app Theme + the locked Summit 01 gold/teal.
+     Fonts are self-hosted (SIL Open Font License, see /assets/OFL-*.txt) so the
+     page makes no third-party requests. */
+  @font-face{font-family:"Alfa Slab One";src:url("/assets/alfa-slab-one-latin.woff2") format("woff2");font-display:swap;}
+  @font-face{font-family:"Zilla Slab";font-weight:700;src:url("/assets/zilla-slab-700-latin.woff2") format("woff2");font-display:swap;}
+  @font-face{font-family:"Work Sans";font-weight:400 700;src:url("/assets/work-sans-latin.woff2") format("woff2");font-display:swap;}
+  @font-face{font-family:"Space Mono";font-weight:400;src:url("/assets/space-mono-400-latin.woff2") format("woff2");font-display:swap;}
+  @font-face{font-family:"Space Mono";font-weight:700;src:url("/assets/space-mono-700-latin.woff2") format("woff2");font-display:swap;}
+  :root{
+    --pine:#2E4A3A; --pine-dark:#22382C;
+    --rust:#C8532A; --rust-dark:#A83E1E;
+    --gold:#ECA239; --cream:#F3E7CE; --paper:#FBF7EE; --card:#FFFFFF;
+    --ink:#2B2118; --ink-70:#4C4234; --ink-45:#7A6E5A; --ink-25:#B9AE97;
+    --blue:#407D92; --green:#5E8C4E; --red:#9E2B25; --sage:#7FA06B;
+    --line:#E7DFCB;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Work Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:800px;margin:0 auto;padding:56px 24px 80px;}
+
+  .kicker{
+    font-family:"Space Mono",monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--rust);margin:0 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";display:inline-block;width:26px;height:2px;background:var(--rust);}
+  h1.hero{
+    font-family:"Alfa Slab One",serif;font-size:clamp(34px,6vw,54px);line-height:1.05;letter-spacing:.5px;
+    color:var(--pine);margin:0 0 16px;text-wrap:balance;
+  }
+  .sub{font-size:17px;color:var(--ink-70);max-width:580px;margin:0 0 10px;}
+  .sub strong{color:var(--ink);}
+  .updated{font-family:"Space Mono",monospace;font-size:12px;color:var(--ink-45);margin:14px 0 0;}
+
+  .timeline{margin-top:44px;position:relative;}
+  .timeline::before{
+    content:"";position:absolute;left:15px;top:10px;bottom:10px;width:2px;
+    background:repeating-linear-gradient(to bottom,var(--ink-25) 0 6px,transparent 6px 12px);
+  }
+  .stage{position:relative;padding-left:52px;margin-bottom:26px;}
+  .stage:last-child{margin-bottom:0;}
+  .dot{
+    position:absolute;left:0;top:6px;width:32px;height:32px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--pine);display:flex;align-items:center;justify-content:center;
+    font-family:"Space Mono",monospace;font-size:13px;font-weight:700;color:var(--pine);z-index:1;
+  }
+  .stage.live .dot{background:var(--pine);border-color:var(--pine);color:var(--cream);}
+  .stage.next .dot{border-color:var(--gold);color:var(--rust-dark);}
+  .stage.launch .dot{border-color:var(--rust);color:var(--rust-dark);}
+  .stage.later .dot{border-color:var(--blue);color:var(--blue);}
+  .stage.future .dot{border-color:var(--ink-25);color:var(--ink-45);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px 22px;}
+  .stage.live .card{background:var(--cream);border-color:var(--gold);}
+  .stage.next .card{border-color:var(--gold);}
+
+  .pill{
+    display:inline-block;font-family:"Space Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:10px;
+  }
+  .stage.live .pill{background:var(--pine);color:var(--cream);}
+  .stage.next .pill{background:var(--gold);color:var(--ink);}
+  .stage.launch .pill{background:var(--rust);color:#fff;}
+  .stage.later .pill{background:var(--blue);color:#fff;}
+  .stage.future .pill{background:var(--line);color:var(--ink-70);}
+
+  .stage-label{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-45);margin:0 0 4px;}
+  h2.title{font-family:"Zilla Slab",serif;font-weight:700;font-size:23px;line-height:1.2;color:var(--ink);margin:0 0 8px;text-wrap:balance;}
+  .desc{font-size:15.5px;color:var(--ink-70);margin:0;}
+  .desc + .desc{margin-top:8px;}
+  .desc strong{color:var(--ink);}
+  ul.items{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:7px;}
+  ul.items li{font-size:15px;color:var(--ink-70);padding-left:18px;position:relative;}
+  ul.items li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--ink-25);}
+  ul.items li strong{color:var(--ink);}
+
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .tag{font-family:"Space Mono",monospace;font-size:10.5px;color:var(--ink-45);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:3px 8px;}
+
+  .ask{margin-top:44px;border:2px solid var(--ink);border-radius:14px;padding:20px 24px 22px;background:var(--card);}
+  .ask h2{font-family:"Alfa Slab One",serif;font-weight:400;font-size:22px;color:var(--pine);margin:0 0 6px;}
+  .ask p{margin:0;font-size:15px;color:var(--ink-70);}
+  .ask ol{margin:12px 0 0;padding-left:22px;display:grid;gap:8px;font-size:15px;color:var(--ink-70);}
+  .ask ol strong{color:var(--ink);}
+
+  .note{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--ink-45);margin:28px 0 0;padding-top:18px;border-top:1px dashed var(--ink-25);}
+  footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-45);}
+  .home{display:inline-block;font-family:"Space Mono",monospace;font-size:12px;color:var(--ink-45);text-decoration:none;margin:0 0 28px;}
+  .home:hover{color:var(--rust-dark);}
+  footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 6px;}
+  footer a{color:var(--rust-dark);}
+  .note a, ul.items li a{color:var(--rust-dark);}
+  footer .wordmark{font-family:"Alfa Slab One",serif;font-size:15px;color:var(--pine);letter-spacing:.5px;}
+
+  @media (max-width:520px){
+    .wrap{padding:40px 18px 60px;}
+    .stage{padding-left:44px;}
+    .dot{width:28px;height:28px;left:0;}
+    .timeline::before{left:13px;}
+    .card,.ask{padding:18px 18px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="home" href="/">← westbound.app</a>
+  <p class="kicker">The road ahead</p>
+  <h1 class="hero">Westbound Roadmap</h1>
+  <p class="sub">Where Westbound stands today, and what's coming next. Order and scope will shift as real drives, and feedback, show what matters.</p>
+  <p class="sub"><strong>Westbound is on its way to the App Store.</strong> A small group of I-70 drivers has been testing it through Apple's TestFlight, and everything marked "Built" below is running on their phones today.</p>
+  <p class="updated">Updated October 24, 2026 · current build 1.0 (10)</p>
+
+  <div class="timeline">
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">The core app</p>
+        <h2 class="title">Track the drive, earn the stickers</h2>
+        <p class="desc">Tap <strong>Start</strong> when you head out and <strong>Stop</strong> when you're through. Westbound matches your route against <strong>12 segments</strong>: I-70 from C-470 to Vail, plus Clear Creek Canyon from Golden and the spurs to Winter Park (Berthoud Pass), A-Basin (Loveland Pass), Keystone and Breckenridge. Finish segments in either direction to earn stickers for the passes you run, the streaks you keep and the hours you put in: <strong>43 stickers and 9 Summits</strong> to chase. No account needed.</p>
+        <div class="tag-row">
+          <span class="tag">12 segments</span>
+          <span class="tag">43 stickers + 9 Summits</span>
+          <span class="tag">works offline</span>
+          <span class="tag">no account</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Auto-start</p>
+        <h2 class="title">A backup for when you forget to tap Start</h2>
+        <p class="desc">With "Always" location on, Westbound watches for you entering the corridor at its main on-ramps and starts the drive itself. It ends the way any drive does, once you've stopped driving for a while. <strong>It's a safety net, not a replacement:</strong> it can start late or miss a drive, so tapping Start is still the surest way to log one.</p>
+        <div class="tag-row">
+          <span class="tag">opt-in</span>
+          <span class="tag">tap Start still wins</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (3)</p>
+        <h2 class="title">Never lose a drive</h2>
+        <p class="desc">If Westbound crashes or gets force-closed mid-drive, your route is saved as you go and offered back the next time you open the app. Finish it or throw it away. And if you forget to tap Stop, Westbound ends the drive on its own after you've been parked a while, at the point you actually stopped moving.</p>
+        <div class="tag-row">
+          <span class="tag">crash recovery</span>
+          <span class="tag">forgot to tap Stop</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (4)</p>
+        <h2 class="title">Real Summit art, and a streak you can trust</h2>
+        <ul class="items">
+          <li><strong>The nine Summits are finished die-cut seals</strong> that change as you climb each one's tiers.</li>
+          <li><strong>Streaks no longer reset every Monday.</strong> A week now counts only if you finish a segment in it, so your streak may read shorter than before.</li>
+          <li><strong>Saving a drive is faster,</strong> most noticeably on long ones.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (5)</p>
+        <h2 class="title">Auto-start at the resort end, and a save you can see</h2>
+        <ul class="items">
+          <li><strong>Auto-start now covers the drive out of Winter Park, Arapahoe Basin and Keystone.</strong> A drive home from Winter Park didn't auto-start, so Berthoud Pass didn't count. It's still a backup, so tap Start when you leave the lot.</li>
+          <li><strong>Tapping Stop shows a progress bar right away,</strong> with a percentage and a rough time left. Long drives still take a while to save; now you can see it working.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (6)</p>
+        <h2 class="title">Drive logic overhaul: only the time you're actually driving</h2>
+        <p class="desc">One test drive, with an afternoon hike in the middle, came back as an unfinished drive, then as more than 11 hours of "traffic delay" on a five-hour recording. This build changes how a drive is timed so that can't happen again.</p>
+        <ul class="items">
+          <li><strong>Only moving time counts.</strong> Stop for 3 minutes or more, for gas, lunch, a hike or even a full closure, and the clock pauses until you're rolling again. Short traffic stops still count.</li>
+          <li><strong>Out and back counts twice.</strong> Every time you drive a segment end to end is its own segment drive, in the direction you drove it, timed on its own.</li>
+          <li><strong>Forgot to tap Stop?</strong> The drive ends after 45 minutes without driving, or 2 hours if you're stuck on I-70. Walking around no longer keeps it going, and the "Drive saved" notice arrives instead of an "Unfinished drive" prompt later.</li>
+          <li><strong>Export this drive.</strong> Send any drive's full route from its trip screen, so we can see exactly what happened when one scores strangely.</li>
+          <li><strong>A tighter corridor and a better A-Basin start.</strong> You'll need to be within 150 m of the road (it was 250 m), and the A-Basin auto-start moves about 2 km up US-6, off the parking lot.</li>
+          <li><strong>Personal Worst waits for a few drives,</strong> and Time Served shows its level in hours.</li>
+        </ul>
+        <p class="desc" style="margin-top:12px"><strong>Heads-up:</strong> the first time you open it, every drive you've already logged is re-scored under the new rules. Stickers that came from sitting still (Five-Hour Corridor, Parking Lot, Time Served, Personal Worst) may disappear, and round trips may pick up direction credit they missed. A small banner shows the progress.</p>
+        <div class="tag-row">
+          <span class="tag">moving time only</span>
+          <span class="tag">out and back = 2</span>
+          <span class="tag">export a drive</span>
+          <span class="tag">your history re-scored</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (7)</p>
+        <h2 class="title">Copper counts now</h2>
+        <p class="desc">Drives to and from Copper never counted Dillon to Copper: the segment ended partway up Vail Pass, so only drivers going on to Vail could finish it.</p>
+        <ul class="items">
+          <li><strong>Dillon to Copper now ends just north of the Copper exit,</strong> where every drive to or from Copper passes. Its normal time drops from 9 to 8 minutes.</li>
+          <li><strong>Auto-start now covers the drive out of Copper toward Denver.</strong> The zone sits on I-70, well clear of the lots, the village and the gas station, so a ski day or a coffee run shouldn't start a drive. Leaving Copper toward Vail, tap Start.</li>
+          <li><strong>Floyd Hill follows the road through Hidden Valley,</strong> not the new alignment that's still being built there.</li>
+          <li><strong>The big "Closest to earning" Summit opens when you tap it,</strong> and the app stays upright on iPhone.</li>
+        </ul>
+        <p class="desc" style="margin-top:12px"><strong>Heads-up:</strong> your drives are re-scored once more when you first open it, so Copper drives you were missing should appear.</p>
+        <div class="tag-row">
+          <span class="tag">Copper counts</span>
+          <span class="tag">auto-start out of Copper</span>
+          <span class="tag">your history re-scored</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (8)</p>
+        <h2 class="title">Every sticker gets its own art</h2>
+        <p class="desc">The 43 stickers in the sticker book were plain coloured circles with an icon. Now each one is a real die-cut sticker with its own picture, in the same style as the Summit seals.</p>
+        <ul class="items">
+          <li><strong>Earned stickers show in full colour.</strong> The ones you're still chasing show in grey, so you can see what's out there.</li>
+          <li><strong>Tap any sticker</strong> for the big version on its own page.</li>
+          <li><strong>A drive's sticker list shows each sticker's picture,</strong> and Summit seals there now go by their real names.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">sticker art</span>
+          <span class="tag">all 43</span>
+          <span class="tag">grey until earned</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (9)</p>
+        <h2 class="title">Ready for the foldable iPhone, and drives that open instantly</h2>
+        <ul class="items">
+          <li><strong>Westbound fits both screens of the new foldable iPhone.</strong> Closed, or open and turned sideways, the tabs move into the strip down the right side, like the phone's own apps. Open and upright, they stay along the bottom. Page headers clear the rounded corners, the sticker book gets more columns, and "Closest to earning" sits beside its progress.</li>
+          <li><strong>Past drives open the moment you tap them,</strong> even a five-hour one. The map shows a "Loading route" placeholder for a beat while the route draws, instead of the app freezing.</li>
+          <li><strong>A drive keeps the same name every time,</strong> and drives home from Keystone or up to A-Basin are no longer called a round trip.</li>
+          <li><strong>Direction stickers only count I-70.</strong> The roads to Keystone and A-Basin head east toward the resorts, so they were counting backwards: a Friday drive home from Keystone could earn Friday Flight. Rush Hour Trifecta now needs a Ski Saturday in ski season.</li>
+        </ul>
+        <p class="desc" style="margin-top:12px"><strong>Heads-up:</strong> your stickers were recounted when you updated, so you may have lost Friday Flight, Sunday Scaries, Ski Saturday or Rush Hour Trifecta, or seen a Due West or Homeward Bound tier drop. Every drive is still there.</p>
+        <div class="tag-row">
+          <span class="tag">foldable iPhone</span>
+          <span class="tag">tabs on the side</span>
+          <span class="tag">instant past drives</span>
+          <span class="tag">stickers recounted</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Built</span>
+        <p class="stage-label">Build 1.0 (10)</p>
+        <h2 class="title">A privacy policy, a support page, and a home on the web</h2>
+        <ul class="items">
+          <li><strong>Westbound has a website,</strong> westbound.app, with a plain-English <a href="/privacy/">privacy policy</a> and a <a href="/support/">support page</a>. Both are linked from Settings in the app.</li>
+          <li><strong>Questions or problems</strong> go to support@westbound.app, read by a person.</li>
+          <li><strong>The Stats tab works out its numbers once,</strong> so it stays quick with a long drive history.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">privacy policy</span>
+          <span class="tag">support page</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage launch">
+      <div class="dot">1</div>
+      <div class="card">
+        <span class="pill">In review</span>
+        <p class="stage-label">Road to the App Store</p>
+        <h2 class="title">Submitted to Apple</h2>
+        <p class="desc">Westbound 1.0 went to Apple for App Review on October 24, 2026. Once it's approved, it goes live on the App Store for iPhone, free, in the United States.</p>
+        <ul class="items">
+          <li><strong>Right after launch: faster saves</strong> after multi-hour drives, not just a progress bar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stage later">
+      <div class="dot">2</div>
+      <div class="card">
+        <span class="pill">Coming later</span>
+        <p class="stage-label">Phase 2 — Social</p>
+        <h2 class="title">Friends &amp; friend leaderboards</h2>
+        <p class="desc">Sign in and back up your drives, so they follow you to a new phone. Then add friends and see how your streaks and completions stack up against people you actually know.</p>
+      </div>
+    </div>
+
+    <div class="stage later">
+      <div class="dot">3</div>
+      <div class="card">
+        <span class="pill">Further out</span>
+        <p class="stage-label">Phase 3 — New roads</p>
+        <h2 class="title">Beyond I-70, starting with Salt Lake City</h2>
+        <p class="desc">Westbound is built around Colorado's I-70 today. <strong>Salt Lake City is the next place we plan to map,</strong> with its own segments to drive. It's a ways off yet, so no dates.</p>
+        <div class="tag-row">
+          <span class="tag">Salt Lake City next</span>
+          <span class="tag">no date yet</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage future">
+      <div class="dot">4</div>
+      <div class="card">
+        <span class="pill">On the horizon</span>
+        <p class="stage-label">Future</p>
+        <h2 class="title">Bigger board, bigger map</h2>
+        <p class="desc">Leaderboards across every Westbound driver. More segments on the corridor. Maybe printed Summit stickers you can put on the car one day, and maybe more platforms. None of these are promises yet.</p>
+        <div class="tag-row">
+          <span class="tag">global leaderboards</span>
+          <span class="tag">more segments</span>
+          <span class="tag">printed Summits?</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="ask" aria-labelledby="ask-h">
+    <h2 id="ask-h">Testing Westbound? Tell us</h2>
+    <p>These answers come only from real drives.</p>
+    <ol>
+      <li><strong>Read the privacy policy and support page</strong> (Settings ▸ About). Is anything unclear, or different from what the app actually does?</li>
+      <li><strong>Have the new foldable iPhone?</strong> Fold, unfold and turn it on each tab and on a past drive. Do the tabs move into the strip on the right side and back to the bottom, and does anything sit under that strip or in a corner? Screenshots help.</li>
+      <li><strong>Lost a sticker in the 1.0 (9) recount that you think you earned?</strong> Tap <em>Export this drive</em> on the drive and send us the files.</li>
+      <li><strong>Open the Stickers tab.</strong> Does every sticker show a picture, and does the big version look sharp when you tap one? Screenshot anything blank or blurry.</li>
+      <li><strong>After updating, open a few of your old drives.</strong> Do the times and stickers look right? If one looks wrong, tap <em>Export this drive</em> and send us the files.</li>
+      <li><strong>Leaving Copper toward Denver without tapping Start?</strong> Tell us if the drive started on its own and whether Dillon to Copper counted. And after a day at Copper, was there a drive in your history you didn't take?</li>
+      <li><strong>Forgot to tap Stop?</strong> Did the drive end by itself and send a "Drive saved" notice, without a Recovered tag later?</li>
+      <li><strong>Leaving A-Basin over Loveland Pass without tapping Start?</strong> Tell us if the drive started on its own and whether Loveland Pass counted.</li>
+      <li><strong>Leaving Winter Park or Keystone without tapping Start?</strong> Same question for Berthoud Pass or Dillon to Keystone.</li>
+      <li><strong>Did a recording run all day on a ski day?</strong> Skiing can be fast enough to look like driving, so tap Stop when you reach the lot.</li>
+    </ol>
+  </section>
+
+  <p class="note">Missing something you'd want to see? Testers can reply on TestFlight; anyone can email <a href="mailto:support@westbound.app">support@westbound.app</a>. This list moves.</p>
+
+  <footer>
+    <div class="wordmark">Westbound</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/support/">Support</a>
+    </nav>
+    Made in Colorado, for the drive. © 2026 Kaleb Parker
+  </footer>
+
+</div>
+</body>
+</html>
