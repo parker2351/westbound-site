@@ -105,7 +105,7 @@
   .home:hover{color:var(--rust-dark);}
   footer nav{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 6px;}
   footer a{color:var(--rust-dark);}
-  .note a, ul.items li a{color:var(--rust-dark);}
+  .note a, ul.items li a, .sub a, .desc a{color:var(--rust-dark);}
   footer .wordmark{font-family:"Alfa Slab One",serif;font-size:15px;color:var(--pine);letter-spacing:.5px;}
 
   @media (max-width:520px){
@@ -124,8 +124,8 @@
   <p class="kicker">The road ahead</p>
   <h1 class="hero">Westbound Roadmap</h1>
   <p class="sub">Where Westbound stands today, and what's coming next. Order and scope will shift as real drives, and feedback, show what matters.</p>
-  <p class="sub"><strong>Westbound is on its way to the App Store.</strong> A small group of I-70 drivers has been testing it through Apple's TestFlight, and everything marked "Built" below is running on their phones today.</p>
-  <p class="updated">Updated October 24, 2026 · current build 1.0 (10)</p>
+  <p class="sub"><strong>Westbound is live on the <a href="https://apps.apple.com/us/app/westbound/id6802436294">App Store</a>,</strong> free for iPhone in the United States. Everything marked "Built" below is in the app today.</p>
+  <p class="updated">Updated November 4, 2026 · current build 1.0 (10)</p>
 
   <div class="timeline">
 
@@ -307,16 +307,23 @@
       </div>
     </div>
 
-    <div class="stage launch">
+    <div class="stage live">
+      <div class="dot">✓</div>
+      <div class="card">
+        <span class="pill">Live</span>
+        <p class="stage-label">On the App Store</p>
+        <h2 class="title">Westbound 1.0 is out</h2>
+        <p class="desc">Westbound 1.0 went live on November 4, 2026: free for iPhone, in the United States. <a href="https://apps.apple.com/us/app/westbound/id6802436294">Get it on the App Store</a>.</p>
+      </div>
+    </div>
+
+    <div class="stage next">
       <div class="dot">1</div>
       <div class="card">
-        <span class="pill">In review</span>
-        <p class="stage-label">Road to the App Store</p>
-        <h2 class="title">Submitted to Apple</h2>
-        <p class="desc">Westbound 1.0 went to Apple for App Review on October 24, 2026. Once it's approved, it goes live on the App Store for iPhone, free, in the United States.</p>
-        <ul class="items">
-          <li><strong>Right after launch: faster saves</strong> after multi-hour drives, not just a progress bar.</li>
-        </ul>
+        <span class="pill">Up next</span>
+        <p class="stage-label">The next update</p>
+        <h2 class="title">Faster saves</h2>
+        <p class="desc">Saving gets quicker after multi-hour drives, not just a progress bar.</p>
       </div>
     </div>
 
