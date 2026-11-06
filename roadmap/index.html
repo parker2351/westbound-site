@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FBF7EE">
 <title>Roadmap · Westbound</title>
 <meta name="description" content="Where the Westbound iPhone app stands today, and what's coming next.">
+<link rel="canonical" href="https://westbound.app/roadmap/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Westbound">
+<meta property="og:title" content="Roadmap · Westbound">
+<meta property="og:description" content="Where the Westbound iPhone app stands today, and what's coming next.">
+<meta property="og:url" content="https://westbound.app/roadmap/">
+<meta property="og:image" content="https://westbound.app/assets/og.png">
+<meta property="og:image:alt" content="The Westbound wordmark over a to-scale trace of I-70 from Vail to C-470.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <style>
@@ -109,11 +119,15 @@
   footer .wordmark{font-family:"Alfa Slab One",serif;font-size:15px;color:var(--pine);letter-spacing:.5px;}
 
   @media (max-width:520px){
-    .wrap{padding:40px 18px 60px;}
-    .stage{padding-left:44px;}
+    .wrap{padding:12px 16px 48px;}
+    .home{display:inline-flex;align-items:center;min-height:44px;margin:0 0 14px;font-size:13px;}
+    .stage{padding-left:38px;}
     .dot{width:28px;height:28px;left:0;}
     .timeline::before{left:13px;}
-    .card,.ask{padding:18px 18px 20px;}
+    .card,.ask{padding:16px 16px 18px;}
+    .pill,.stage-label,.tag{font-size:12px;}
+    footer nav{gap:0 20px;margin:6px 0 2px;}
+    footer nav a{display:inline-flex;align-items:center;min-height:44px;}
   }
 </style>
 </head>
@@ -369,7 +383,7 @@
   </div>
 
   <section class="ask" aria-labelledby="ask-h">
-    <h2 id="ask-h">Testing Westbound? Tell us</h2>
+    <h2 id="ask-h">Driving with Westbound? Tell us</h2>
     <p>These answers come only from real drives.</p>
     <ol>
       <li><strong>Read the privacy policy and support page</strong> (Settings ▸ About). Is anything unclear, or different from what the app actually does?</li>
@@ -385,12 +399,13 @@
     </ol>
   </section>
 
-  <p class="note">Missing something you'd want to see? Testers can reply on TestFlight; anyone can email <a href="mailto:support@westbound.app">support@westbound.app</a>. This list moves.</p>
+  <p class="note">Missing something you'd want to see? Email <a href="mailto:support@westbound.app">support@westbound.app</a>. This list moves.</p>
 
   <footer>
     <div class="wordmark">Westbound</div>
     <nav>
       <a href="/">Home</a>
+      <a href="https://apps.apple.com/us/app/westbound/id6802436294">App Store</a>
       <a href="/privacy/">Privacy Policy</a>
       <a href="/support/">Support</a>
     </nav>

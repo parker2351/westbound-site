@@ -1,9 +1,27 @@
 /* Westbound site, in the app's brand palette.
-   The font is self-hosted so no visitor request goes to a third party. */
+   Fonts are self-hosted so no visitor request goes to a third party. */
 
 @font-face {
   font-family: "Alfa Slab One";
   src: url("alfa-slab-one-latin.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Zilla Slab";
+  font-weight: 700;
+  src: url("zilla-slab-700-latin.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Work Sans";
+  font-weight: 400 700;
+  src: url("work-sans-latin.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  font-weight: 400;
+  src: url("space-mono-400-latin.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -40,13 +58,13 @@
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font: 17px/1.6 "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 a { color: var(--link); text-underline-offset: 2px; }
@@ -63,7 +81,7 @@ a { color: var(--link); text-underline-offset: 2px; }
   align-items: center;
   gap: 12px;
 }
-.masthead a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.masthead a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 12px; min-height: 44px; }
 .masthead img { width: 40px; height: 40px; border-radius: 9px; }
 .wordmark {
   font-family: "Alfa Slab One", Georgia, serif;
@@ -90,32 +108,6 @@ h2 { font-size: 20px; margin: 32px 0 8px; }
 .meta { color: var(--muted); font-size: 15px; margin: 0 0 24px; }
 .lede { font-size: 19px; }
 
-.hero { text-align: center; padding-top: 16px; }
-.hero img { width: 128px; height: 128px; border-radius: 28px; }
-.hero h1 {
-  font-size: 44px;
-  color: var(--gold);
-  text-shadow: 3px 3px 0 var(--rust);
-  letter-spacing: 1px;
-  margin-top: 16px;
-}
-.tagline {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-size: 13px;
-  color: var(--muted);
-  margin: 0 0 24px;
-}
-.pill {
-  display: inline-block;
-  border: 1px solid var(--rule);
-  background: var(--card);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 15px;
-}
-
 dt { font-weight: 600; margin-top: 20px; }
 dd { margin: 4px 0 0; }
 
@@ -127,4 +119,182 @@ footer {
   color: var(--muted);
   font-size: 14px;
 }
-footer nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 8px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 0 20px; margin-bottom: 4px; }
+footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
+
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+/* Homepage. One bold idea: the road itself, traced to scale, under a big wordmark. */
+
+.road {
+  background: var(--pine);
+  color: var(--cream);
+  padding-block: 20px 56px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.road-inner { max-width: 1120px; margin-inline: auto; container-type: inline-size; }
+
+.topnav { display: flex; justify-content: flex-end; gap: 20px; font: 13px "Space Mono", ui-monospace, Menlo, monospace; }
+.topnav a { color: var(--cream); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+
+.bigmark {
+  /* The nine letters measure 7.6em wide, so this fills the column at every width. */
+  font-size: 11.5vw;
+  font-size: 13.1cqw;
+  line-height: 1;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: .03em .03em 0 var(--rust);
+  margin: 8px 0 28px;
+  white-space: nowrap;
+}
+
+.intro { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; }
+.intro > div { flex: 1 1 420px; min-width: 0; max-width: 40rem; }
+.road .tagline {
+  font: 13px "Space Mono", ui-monospace, Menlo, monospace;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.pitch { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; margin: 0; }
+/* Same shape and face as the app's Start Drive button. */
+.getit {
+  display: inline-block;
+  background: var(--rust);
+  color: #fff;
+  font: 700 21px/1.2 "Zilla Slab", Georgia, serif;
+  text-decoration: none;
+  border-radius: 14px;
+  padding: 16px 26px;
+  box-shadow: 0 3px 0 var(--rust-deep);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.getit:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--rust-deep); }
+
+.corridor { margin: 44px 0 0; }
+.trace { position: relative; max-width: 100%; }
+.trace svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.trace path { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.spur { stroke: var(--cream); stroke-width: 1.6; opacity: .75; }
+.link { stroke-dasharray: 1 6; }
+.main { stroke: var(--gold); stroke-width: 5; }
+.main-shadow { stroke: var(--rust); stroke-width: 5; }
+
+.places { position: absolute; inset: 0; list-style: none; margin: 0; padding: 0; font: 13px/1.2 "Space Mono", ui-monospace, Menlo, monospace; pointer-events: none; }
+.places li { position: absolute; white-space: nowrap; transform: translate(-50%, 0); }
+.places li span { opacity: .75; }
+.places i { font-style: normal; white-space: pre; }
+.places li::before { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--cream); border: 2px solid var(--pine); }
+.places .below { margin-top: 12px; }
+.places .above { transform: translate(-50%, -100%); margin-top: -12px; }
+.places .beside { transform: translate(0, -50%); margin-left: 12px; }
+.places .start { transform: translate(0, 0); }
+.places .end { transform: translate(-100%, 0); }
+.places .above.end { transform: translate(-100%, -100%); }
+.places .above.start { transform: translate(0, -100%); }
+/* Each dot sits exactly on the road point the label is positioned from. */
+.places .below::before { left: 50%; top: -12px; transform: translate(-50%, -50%); }
+.places .above::before { left: 50%; bottom: -12px; transform: translate(-50%, 50%); }
+.places .beside::before { left: -12px; top: 50%; transform: translate(-50%, -50%); }
+.places .start::before { left: 0; }
+.places .end::before { left: 100%; }
+
+.corridor figcaption { margin-top: 44px; font: 13px/1.5 "Space Mono", ui-monospace, Menlo, monospace; opacity: .85; }
+.corridor .west { color: var(--gold); font-weight: 700; }
+
+.wide, .wide-footer {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.wide { padding-block: 0; }
+.wide section { padding-block: 64px; }
+.wide section + section { border-top: 1px solid var(--rule); }
+.wide h2 { font-size: clamp(24px, 3.4vw, 38px); line-height: 1.15; margin: 0 0 14px; text-wrap: balance; max-width: 22em; }
+.wide section > p { max-width: 40rem; margin: 0; }
+
+.wall {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(8px, 2vw, 22px);
+}
+.wall img { display: block; width: 100%; height: auto; transition: transform .18s ease; }
+/* Stuck on by hand, a little crooked. */
+.wall li:nth-child(4n+1) img { transform: rotate(-4deg); }
+.wall li:nth-child(4n+2) img { transform: rotate(3deg); }
+.wall li:nth-child(4n+3) img { transform: rotate(-2deg); }
+.wall li:nth-child(4n) img { transform: rotate(5deg); }
+@media (hover: hover) {
+  .topnav a:hover { color: var(--gold); }
+  .getit:hover { transform: translateY(1px); box-shadow: 0 2px 0 var(--rust-deep); }
+  .wall li img:hover { transform: rotate(0) scale(1.08); }
+}
+
+.how { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.how-copy h3 { font: 700 22px/1.2 "Zilla Slab", Georgia, serif; color: var(--link); margin: 26px 0 4px; }
+.how-copy p { margin: 0; max-width: 32rem; }
+.phones { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.phones img { display: block; width: 100%; height: auto; border-radius: 22px; border: 1px solid var(--rule); box-shadow: 0 10px 28px rgba(43, 33, 24, .18); }
+.phones img:last-child { margin-top: 32px; }
+
+.basics dl { margin: 24px 0 0; }
+.basics dl > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 16px; padding-block: 12px; border-top: 1px solid var(--rule); }
+.basics dt { font: 13px/1.9 "Space Mono", ui-monospace, Menlo, monospace; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin: 0; }
+.basics dd { margin: 0; max-width: 40rem; }
+.basics .again { margin: 32px 0 0; }
+.basics .next { margin-top: 20px; font-weight: 500; }
+
+.wide-footer { border-top: 1px solid var(--rule); padding-block: 16px 40px; }
+
+@media (max-width: 1000px) {
+  .places li span { display: none; }
+}
+
+/* Phones are the main way this site gets seen. */
+@media (max-width: 760px) {
+  .road { padding-block: 8px 36px; }
+  .bigmark { margin-bottom: 22px; }
+  .intro { gap: 20px; }
+  .getit { display: block; width: 100%; text-align: center; padding-block: 18px; }
+
+  /* The map runs nearly edge to edge. */
+  .corridor { margin: 36px -8px 0; }
+  .places { font-size: 12px; }
+  .places li:not(.major) { display: none; }
+  /* A shorter tunnel label leaves room for Vail's. */
+  .places i { display: none; }
+  .corridor figcaption { margin: 34px 8px 0; }
+
+  .wide section { padding-block: 44px; }
+  .wall { grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 28px -6px 0; }
+
+  .how { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  /* Screenshots big enough to read, side by side: swipe to see the next one. */
+  .phones {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    margin-inline: -20px;
+    padding: 4px 20px 28px;
+    scroll-padding-inline: 20px;
+  }
+  .phones::-webkit-scrollbar { display: none; }
+  .phones img { flex: 0 0 min(68vw, 300px); width: min(68vw, 300px); scroll-snap-align: start; }
+  .phones img:last-child { margin-top: 0; }
+
+  .basics dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .getit, .wall img { transition: none; }
+}
