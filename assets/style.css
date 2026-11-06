@@ -58,7 +58,7 @@
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 
 body {
   margin: 0;
@@ -81,7 +81,7 @@ a { color: var(--link); text-underline-offset: 2px; }
   align-items: center;
   gap: 12px;
 }
-.masthead a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.masthead a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 12px; min-height: 44px; }
 .masthead img { width: 40px; height: 40px; border-radius: 9px; }
 .wordmark {
   font-family: "Alfa Slab One", Georgia, serif;
@@ -119,7 +119,8 @@ footer {
   color: var(--muted);
   font-size: 14px;
 }
-footer nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 8px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 0 20px; margin-bottom: 4px; }
+footer nav a { display: inline-flex; align-items: center; min-height: 44px; }
 
 a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
@@ -135,8 +136,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
 .road-inner { max-width: 1120px; margin-inline: auto; container-type: inline-size; }
 
 .topnav { display: flex; justify-content: flex-end; gap: 20px; font: 13px "Space Mono", ui-monospace, Menlo, monospace; }
-.topnav a { color: var(--cream); text-decoration: none; padding-block: 6px; }
-.topnav a:hover { color: var(--gold); }
+.topnav a { color: var(--cream); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
 
 .bigmark {
   /* The nine letters measure 7.6em wide, so this fills the column at every width. */
@@ -147,7 +147,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
   text-transform: uppercase;
   color: var(--gold);
   text-shadow: .03em .03em 0 var(--rust);
-  margin: 20px 0 28px;
+  margin: 8px 0 28px;
   white-space: nowrap;
 }
 
@@ -173,7 +173,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
   box-shadow: 0 3px 0 var(--rust-deep);
   transition: transform .12s ease, box-shadow .12s ease;
 }
-.getit:hover { transform: translateY(1px); box-shadow: 0 2px 0 var(--rust-deep); }
+.getit:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--rust-deep); }
 
 .corridor { margin: 44px 0 0; }
 .trace { position: relative; max-width: 100%; }
@@ -187,6 +187,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
 .places { position: absolute; inset: 0; list-style: none; margin: 0; padding: 0; font: 13px/1.2 "Space Mono", ui-monospace, Menlo, monospace; pointer-events: none; }
 .places li { position: absolute; white-space: nowrap; transform: translate(-50%, 0); }
 .places li span { opacity: .75; }
+.places i { font-style: normal; white-space: pre; }
 .places li::before { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--cream); border: 2px solid var(--pine); }
 .places .below { margin-top: 12px; }
 .places .above { transform: translate(-50%, -100%); margin-top: -12px; }
@@ -231,7 +232,11 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
 .wall li:nth-child(4n+2) img { transform: rotate(3deg); }
 .wall li:nth-child(4n+3) img { transform: rotate(-2deg); }
 .wall li:nth-child(4n) img { transform: rotate(5deg); }
-.wall li img:hover { transform: rotate(0) scale(1.08); }
+@media (hover: hover) {
+  .topnav a:hover { color: var(--gold); }
+  .getit:hover { transform: translateY(1px); box-shadow: 0 2px 0 var(--rust-deep); }
+  .wall li img:hover { transform: rotate(0) scale(1.08); }
+}
 
 .how { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
 .how-copy h3 { font: 700 22px/1.2 "Zilla Slab", Georgia, serif; color: var(--link); margin: 26px 0 4px; }
@@ -244,7 +249,8 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
 .basics dl > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 16px; padding-block: 12px; border-top: 1px solid var(--rule); }
 .basics dt { font: 13px/1.9 "Space Mono", ui-monospace, Menlo, monospace; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin: 0; }
 .basics dd { margin: 0; max-width: 40rem; }
-.basics .next { margin-top: 28px; font-weight: 500; }
+.basics .again { margin: 32px 0 0; }
+.basics .next { margin-top: 20px; font-weight: 500; }
 
 .wide-footer { border-top: 1px solid var(--rule); padding-block: 16px 40px; }
 
@@ -252,17 +258,40 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-ra
   .places li span { display: none; }
 }
 
+/* Phones are the main way this site gets seen. */
 @media (max-width: 760px) {
+  .road { padding-block: 8px 36px; }
+  .bigmark { margin-bottom: 22px; }
+  .intro { gap: 20px; }
+  .getit { display: block; width: 100%; text-align: center; padding-block: 18px; }
+
+  /* The map runs nearly edge to edge. */
+  .corridor { margin: 36px -8px 0; }
+  .places { font-size: 12px; }
   .places li:not(.major) { display: none; }
-  .places { font-size: 11px; }
-  /* On a phone, Vail's label moves under the road to clear the tunnel's. */
-  .places .above.start { transform: none; margin-top: 12px; }
-  .places .above.start::before { top: -12px; bottom: auto; transform: translate(-50%, -50%); }
-  .corridor figcaption { margin-top: 36px; }
-  .road { padding-bottom: 40px; }
-  .wall { grid-template-columns: repeat(3, 1fr); }
+  /* A shorter tunnel label leaves room for Vail's. */
+  .places i { display: none; }
+  .corridor figcaption { margin: 34px 8px 0; }
+
   .wide section { padding-block: 44px; }
-  .how { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .wall { grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 28px -6px 0; }
+
+  .how { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  /* Screenshots big enough to read, side by side: swipe to see the next one. */
+  .phones {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    margin-inline: -20px;
+    padding: 4px 20px 28px;
+    scroll-padding-inline: 20px;
+  }
+  .phones::-webkit-scrollbar { display: none; }
+  .phones img { flex: 0 0 min(68vw, 300px); width: min(68vw, 300px); scroll-snap-align: start; }
+  .phones img:last-child { margin-top: 0; }
+
   .basics dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 
