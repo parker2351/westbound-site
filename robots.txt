@@ -1,0 +1,5 @@
+# Everyone is welcome to read this site, including AI assistants and search engines.
+User-agent: *
+Allow: /
+
+Sitemap: https://westbound.app/sitemap.xml
