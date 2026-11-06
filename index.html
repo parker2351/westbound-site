@@ -3,23 +3,168 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Westbound</title>
-  <meta name="description" content="Westbound logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection.">
+  <title>Westbound: I-70 drive log and stickers for iPhone</title>
+  <meta name="description" content="Westbound is a free iPhone app that logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection.">
+  <link rel="canonical" href="https://westbound.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Westbound">
+  <meta property="og:title" content="Westbound: I-70 drive log and stickers for iPhone">
+  <meta property="og:description" content="Westbound is a free iPhone app that logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection.">
+  <meta property="og:url" content="https://westbound.app/">
+  <meta property="og:image" content="https://westbound.app/assets/og.png">
+  <meta property="og:image:alt" content="The Westbound wordmark over a to-scale trace of I-70 from Vail to C-470.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://westbound.app/#website",
+      "name": "Westbound",
+      "url": "https://westbound.app/"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://westbound.app/#app",
+      "name": "Westbound",
+      "description": "Westbound is a free iPhone app that logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection.",
+      "url": "https://westbound.app/",
+      "installUrl": "https://apps.apple.com/us/app/westbound/id6802436294",
+      "sameAs": [
+        "https://apps.apple.com/us/app/westbound/id6802436294"
+      ],
+      "operatingSystem": "iOS 17.6 or later",
+      "applicationCategory": "TravelApplication",
+      "datePublished": "2026-11-04",
+      "countriesSupported": "US",
+      "image": "https://westbound.app/assets/og.png",
+      "screenshot": [
+        "https://westbound.app/assets/app-drive.jpg",
+        "https://westbound.app/assets/app-stickers.jpg"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Kaleb Parker"
+      },
+      "featureList": [
+        "Logs drives on I-70 from C-470 to Vail, plus Clear Creek Canyon, Berthoud Pass, Loveland Pass, Keystone and Breckenridge",
+        "Manual Start and Stop, or optional auto-detect",
+        "Route matching that works with no signal",
+        "43 stickers for passes, streaks, time on the road and weather",
+        "No account needed"
+      ]
+    }
+  ]
+}
+  </script>
 </head>
-<body>
-  <main class="hero">
-    <img src="/assets/icon.svg" alt="Westbound app icon">
-    <h1>WESTBOUND</h1>
-    <p class="tagline">Every westbound, counted</p>
-    <p class="lede">Westbound logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection: for the passes you cross, the streaks you keep, and the hours you put in.</p>
-    <p><a class="pill" href="https://apps.apple.com/us/app/westbound/id6802436294">Free on the App Store for iPhone</a></p>
-    <p><a href="/roadmap/">See what's built and what's coming →</a></p>
+<body class="home">
+  <header class="road">
+    <div class="road-inner">
+      <nav class="topnav" aria-label="Main">
+        <a href="/roadmap/">Roadmap</a>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+      </nav>
+      <h1 class="bigmark">Westbound</h1>
+      <div class="intro">
+        <div>
+          <p class="tagline">Every westbound, counted</p>
+          <p class="pitch">Westbound is a free iPhone app that logs your drives on Colorado's I-70 mountain corridor and turns them into a sticker collection: for the passes you cross, the streaks you keep, and the hours you put in.</p>
+        </div>
+        <a class="getit" href="https://apps.apple.com/us/app/westbound/id6802436294">Free on the App Store</a>
+      </div>
+      <figure class="corridor">
+        <div class="trace" style="aspect-ratio:1000/414">
+          <!-- Traced to scale from the app's Corridor/westbound_segments.json. West is on the left. -->
+          <svg viewBox="0 0 1000 414" role="img" aria-label="Map of the corridor, to scale: I-70 from C-470 west to Vail, with spurs to Winter Park, A-Basin, Keystone and Breckenridge, and Clear Creek Canyon to Golden.">
+            <path class="spur" d="M616.2 118.4L614.3 118.4L605.9 120.9L602.1 120.3L596.3 120.6L587.7 118.7L576.9 118.8L563.3 118.2L556.7 116.5L554.8 116.7L551.9 116.0L548.1 116.6L542.4 116.2L529.3 110.0L527.5 107.6L525.8 106.7L519.1 105.8L515.4 104.5L502.9 102.1L499.0 102.5L488.6 107.7L488.0 107.1L487.2 105.6L491.9 102.2L495.2 100.0L500.7 98.1L503.3 95.4L506.0 94.4L505.4 94.1L504.6 94.7L501.7 94.9L501.4 94.3L503.3 94.0L506.6 92.0L508.5 89.7L509.2 86.9L508.5 86.5L505.8 90.5L502.3 92.1L500.4 92.0L497.1 90.0L499.5 91.0L501.4 91.0L505.0 87.7L505.8 85.0L504.7 81.4L505.1 80.6L506.0 80.3L508.6 81.4L510.3 80.5L511.6 79.1L511.4 75.3L513.1 73.0L512.9 70.1L513.6 69.9L514.0 71.7L513.3 75.4L514.0 75.6L515.2 72.0L515.0 70.0L513.8 68.5L511.1 67.5L510.6 66.6L513.3 62.8L515.6 61.0L518.2 58.1L518.8 55.3L518.1 52.5L520.7 51.9L521.9 50.4L519.7 46.2L520.5 44.4L523.5 42.0L524.6 40.4L526.3 34.8L528.6 30.5L527.7 28.9L528.2 28.4L528.7 29.1L528.9 31.0L527.7 34.8L527.4 40.6L526.0 44.2L526.4 47.1L527.0 47.7L526.9 44.1L530.4 36.0L532.0 30.4L532.7 23.6L532.0 16.8L532.7 14.0M413.7 206.4L413.9 207.4L416.7 208.1L423.4 207.7L424.7 213.3L423.5 219.0L424.0 219.7L427.0 217.5L428.4 215.0L431.1 212.2L430.7 210.3L431.2 207.5L431.3 210.1L432.3 212.7L430.4 215.8L430.5 217.7L429.9 219.5L428.3 222.8L426.9 224.1L426.0 226.8L426.4 228.7L427.5 230.3L427.5 232.2L428.8 233.6L429.7 236.4L430.5 236.5L430.5 230.7L432.1 228.5L432.0 229.3L431.3 229.9L431.2 232.8L433.8 240.2M963.1 126.1L957.5 127.3L951.5 130.6L950.5 132.2L950.7 136.1L949.6 138.8L948.9 139.4L947.0 139.3L946.1 139.8L943.1 143.6L942.2 143.8L935.6 142.4L935.1 138.8L933.3 138.0L926.7 141.3L921.1 139.7L918.9 137.9L917.9 137.8L915.6 139.5L914.7 139.4L912.2 137.9L910.3 138.0L909.4 137.5L907.9 135.1L907.0 134.7L904.1 134.2L902.4 134.9L902.1 135.8L902.9 138.6L902.7 139.5L901.1 140.6L900.3 144.2L896.6 145.5L895.7 145.5L890.2 141.5L888.4 140.7L883.6 140.1L874.0 141.1L869.5 139.3L866.3 141.4L862.7 142.5L861.5 145.2L858.9 147.9L855.2 147.2L852.6 148.4L851.7 147.9L851.4 146.1L850.7 145.4L846.9 145.4L844.1 146.2L841.8 144.5L839.5 146.3L838.7 146.6L837.8 146.2L835.8 144.1L834.5 139.5L830.0 137.8L828.5 135.4L827.0 134.3L823.1 134.5L822.3 135.0L820.8 138.5L818.2 141.3L815.4 141.9L812.9 144.8L811.2 145.8L810.3 145.8L807.5 143.2L804.6 143.3L803.0 139.9L800.6 139.2M287.2 343.3L291.2 348.8L292.0 352.6L284.8 388.9L286.0 397.2M268.7 262.8L273.6 263.3L278.4 262.6L281.3 263.0L289.3 257.6L291.2 257.4L293.4 259.2L296.2 266.4L301.9 271.7L306.1 280.5L314.7 288.4L319.2 290.0L331.8 291.9L338.0 289.4L342.8 288.6L345.8 287.5"/>
+            <path class="spur link" d="M244.8 301.8L287.2 343.3"/>
+            <path class="main-shadow" d="M986.0 190.4L977.4 189.7L970.9 187.4L963.1 187.2L961.4 186.4L958.6 183.7L955.0 182.3L948.4 180.6L941.6 181.2L931.0 179.2L924.0 175.9L916.3 175.0L900.5 170.0L897.9 171.2L893.2 176.2L885.0 183.1L883.2 183.8L881.3 183.7L874.1 180.7L868.9 174.9L864.7 172.6L855.0 171.7L851.1 168.9L849.2 168.4L843.5 169.5L838.8 168.3L831.0 168.6L828.4 167.4L824.5 164.4L814.4 160.8L808.8 157.0L804.9 152.7L800.3 144.1L798.8 138.5L794.8 135.9L793.8 135.8L789.7 138.0L786.1 137.1L782.6 138.5L781.6 138.4L776.7 135.3L772.9 134.5L769.7 136.5L766.8 136.2L758.1 137.8L754.4 136.9L752.4 137.0L745.7 140.9L746.2 140.0M746.2 140.0L745.8 140.8L743.1 141.7L738.2 141.5L734.4 140.5L728.6 141.0L724.8 140.5L712.6 136.9L704.6 133.4L701.1 130.1L697.7 128.2L695.0 125.4L690.3 124.6L678.6 117.6L675.8 116.7L667.1 115.7L660.3 116.0L640.0 113.3L636.1 113.8L631.6 115.6L619.7 118.7M619.7 118.7L616.0 120.0L613.6 121.6L610.2 126.3L607.5 129.0L593.7 136.4L589.9 139.3L587.4 144.6L582.5 151.9L580.1 160.3L578.5 172.9L577.5 175.6L568.6 184.6L564.2 186.6L559.5 187.8L553.7 191.4L551.7 191.6L536.4 188.8L524.8 189.8L520.9 189.3L515.2 190.7L504.5 191.4L498.0 190.1L490.7 192.8L484.1 194.2L473.6 192.1L464.4 186.5L456.3 183.4L440.7 183.8L438.0 184.9L430.1 190.7L418.8 204.1L417.1 205.0L411.3 205.5L409.5 206.4M409.5 206.4L407.0 207.9L405.1 208.4L386.1 208.4M386.1 208.4L379.3 208.6L373.9 210.7L364.2 210.4L358.1 213.5L350.4 214.4L346.9 217.8L344.8 222.1L341.4 225.6L336.2 228.3L332.3 231.3L324.6 235.4L321.8 236.1L317.9 236.3L313.2 237.5L310.0 239.8L307.3 240.8L302.8 244.5L296.1 245.9L287.0 251.4L281.3 256.8L271.1 262.5L268.9 263.0M265.8 265.7L264.3 269.3L264.8 276.1L263.5 279.7L259.1 283.5L256.0 288.5L251.0 293.1L244.8 301.8L234.9 309.7L232.8 315.2L230.8 322.7L229.3 325.2L226.3 327.6L221.1 330.3L217.7 333.7L217.0 335.5L216.6 340.3L211.9 346.5L209.5 351.8L209.1 355.7L206.3 360.8L206.4 363.7L210.2 370.5L210.2 373.3L209.3 375.1L204.4 379.8L203.6 382.9M198.9 398.5L194.0 398.6L188.5 400.4L186.6 400.4L184.7 400.0L181.3 398.1L176.5 397.3L173.0 395.8L167.2 394.8L161.4 395.4L158.0 393.7L154.0 385.9L149.7 382.1L146.0 375.2L145.5 372.4L146.3 360.8L145.7 358.9L144.6 358.3L141.5 350.1L134.7 340.6L131.6 338.2L129.8 333.7L126.5 330.1L124.6 326.8L119.3 321.0L117.9 318.5L117.6 315.6L119.4 312.2L121.1 306.6L121.1 304.6L120.4 302.8L119.1 301.4L115.6 299.9L106.8 299.7L105.0 299.0L100.1 295.9L96.5 290.1L92.3 277.2L93.7 266.6L93.2 264.7L92.0 263.2L85.9 260.1L77.6 251.9L72.3 247.7L63.7 243.2L51.0 243.0L39.7 246.2L24.4 249.2L20.6 248.9L14.0 247.1M203.6 382.9L205.5 392.1L205.5 395.0L204.6 396.7L203.1 397.9L198.9 398.5" transform="translate(2.5 2.5)"/>
+            <path class="main" d="M986.0 190.4L977.4 189.7L970.9 187.4L963.1 187.2L961.4 186.4L958.6 183.7L955.0 182.3L948.4 180.6L941.6 181.2L931.0 179.2L924.0 175.9L916.3 175.0L900.5 170.0L897.9 171.2L893.2 176.2L885.0 183.1L883.2 183.8L881.3 183.7L874.1 180.7L868.9 174.9L864.7 172.6L855.0 171.7L851.1 168.9L849.2 168.4L843.5 169.5L838.8 168.3L831.0 168.6L828.4 167.4L824.5 164.4L814.4 160.8L808.8 157.0L804.9 152.7L800.3 144.1L798.8 138.5L794.8 135.9L793.8 135.8L789.7 138.0L786.1 137.1L782.6 138.5L781.6 138.4L776.7 135.3L772.9 134.5L769.7 136.5L766.8 136.2L758.1 137.8L754.4 136.9L752.4 137.0L745.7 140.9L746.2 140.0M746.2 140.0L745.8 140.8L743.1 141.7L738.2 141.5L734.4 140.5L728.6 141.0L724.8 140.5L712.6 136.9L704.6 133.4L701.1 130.1L697.7 128.2L695.0 125.4L690.3 124.6L678.6 117.6L675.8 116.7L667.1 115.7L660.3 116.0L640.0 113.3L636.1 113.8L631.6 115.6L619.7 118.7M619.7 118.7L616.0 120.0L613.6 121.6L610.2 126.3L607.5 129.0L593.7 136.4L589.9 139.3L587.4 144.6L582.5 151.9L580.1 160.3L578.5 172.9L577.5 175.6L568.6 184.6L564.2 186.6L559.5 187.8L553.7 191.4L551.7 191.6L536.4 188.8L524.8 189.8L520.9 189.3L515.2 190.7L504.5 191.4L498.0 190.1L490.7 192.8L484.1 194.2L473.6 192.1L464.4 186.5L456.3 183.4L440.7 183.8L438.0 184.9L430.1 190.7L418.8 204.1L417.1 205.0L411.3 205.5L409.5 206.4M409.5 206.4L407.0 207.9L405.1 208.4L386.1 208.4M386.1 208.4L379.3 208.6L373.9 210.7L364.2 210.4L358.1 213.5L350.4 214.4L346.9 217.8L344.8 222.1L341.4 225.6L336.2 228.3L332.3 231.3L324.6 235.4L321.8 236.1L317.9 236.3L313.2 237.5L310.0 239.8L307.3 240.8L302.8 244.5L296.1 245.9L287.0 251.4L281.3 256.8L271.1 262.5L268.9 263.0M265.8 265.7L264.3 269.3L264.8 276.1L263.5 279.7L259.1 283.5L256.0 288.5L251.0 293.1L244.8 301.8L234.9 309.7L232.8 315.2L230.8 322.7L229.3 325.2L226.3 327.6L221.1 330.3L217.7 333.7L217.0 335.5L216.6 340.3L211.9 346.5L209.5 351.8L209.1 355.7L206.3 360.8L206.4 363.7L210.2 370.5L210.2 373.3L209.3 375.1L204.4 379.8L203.6 382.9M198.9 398.5L194.0 398.6L188.5 400.4L186.6 400.4L184.7 400.0L181.3 398.1L176.5 397.3L173.0 395.8L167.2 394.8L161.4 395.4L158.0 393.7L154.0 385.9L149.7 382.1L146.0 375.2L145.5 372.4L146.3 360.8L145.7 358.9L144.6 358.3L141.5 350.1L134.7 340.6L131.6 338.2L129.8 333.7L126.5 330.1L124.6 326.8L119.3 321.0L117.9 318.5L117.6 315.6L119.4 312.2L121.1 306.6L121.1 304.6L120.4 302.8L119.1 301.4L115.6 299.9L106.8 299.7L105.0 299.0L100.1 295.9L96.5 290.1L92.3 277.2L93.7 266.6L93.2 264.7L92.0 263.2L85.9 260.1L77.6 251.9L72.3 247.7L63.7 243.2L51.0 243.0L39.7 246.2L24.4 249.2L20.6 248.9L14.0 247.1M203.6 382.9L205.5 392.1L205.5 395.0L204.6 396.7L203.1 397.9L198.9 398.5"/>
+          </svg>
+          <ul class="places" aria-hidden="true">
+        <li class="above start major" style="left:1.4%;top:59.69%">Vail <span>Exit 176</span></li>
+        <li class="below" style="left:19.89%;top:96.26%">Copper <span>Exit 195</span></li>
+        <li class="above end" style="left:26.89%;top:63.53%">Silverthorne <span>Exit 205</span></li>
+        <li class="beside" style="left:28.6%;top:95.94%">Breck</li>
+        <li class="beside" style="left:34.58%;top:69.45%">Keystone</li>
+        <li class="below" style="left:43.38%;top:58.02%">A-Basin</li>
+        <li class="above end major" style="left:40.95%;top:49.84%">Eisenhower Tunnel</li>
+        <li class="beside major" style="left:53.27%;top:3.38%">Winter Park</li>
+        <li class="below end" style="left:74.62%;top:33.81%">Idaho Springs</li>
+        <li class="above end" style="left:96.31%;top:30.47%">Golden</li>
+        <li class="below end major" style="left:98.6%;top:45.99%">C-470 <span>Exit 260</span></li>
+          </ul>
+        </div>
+        <figcaption><span class="west" aria-hidden="true">&larr;</span> West. About 80 miles of I-70 and five side roads, traced to scale from the road data Westbound uses.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <main class="wide">
+    <section class="stickers" aria-labelledby="stickers-h">
+      <h2 id="stickers-h">You know the passes by heart, and the traffic by heartbreak.</h2>
+      <p>Westbound has 43 stickers for the passes you cross, the streaks you keep, the weather you drive through and the traffic you sit in. Then there are nine Summits, the hard ones, for a lifetime of corridor miles.</p>
+      <ul class="wall">
+      <li><img src="/assets/stickers/whiteout_warrior.svg" alt="Whiteout Warrior sticker: a drive completed during active snowfall." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/bluebird.svg" alt="Bluebird sticker: a clear, sunny day right after a storm." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/the_crawl.svg" alt="The Crawl sticker: a pass at least twice your usual driving time." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/due_west.svg" alt="Due West sticker: total westbound completions, from 10 up to 100." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/dawn_patrol.svg" alt="Dawn Patrol sticker: a completion before sunrise." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/parking_lot.svg" alt="Parking Lot sticker: one pass at three times its free-flow time." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/three_pass_club.svg" alt="Three-Pass Club sticker: all three passes: Berthoud, Loveland and Vail." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/sunday_scaries.svg" alt="Sunday Scaries sticker: the Sunday-afternoon eastbound rush." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/chained_up.svg" alt="Chained Up sticker: a day with a traction or chain law on your segment." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/gaper_day.svg" alt="Gaper Day sticker: a drive on the first Saturday of April." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/the_first_betrayal.svg" alt="The First Betrayal sticker: your first US-40 to Tunnel approach." width="200" height="200" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/stickers/vampire_shift.svg" alt="Vampire Shift sticker: a completion before 4 AM." width="200" height="200" loading="lazy" decoding="async"></li>
+      </ul>
+    </section>
+
+    <section class="how" aria-labelledby="how-h">
+      <div class="how-copy">
+        <h2 id="how-h">How it works</h2>
+        <h3>Drive</h3>
+        <p>Tap Start Drive, or turn on auto-detect and let Westbound start and stop for you.</p>
+        <h3>Count</h3>
+        <p>Westbound matches your route against 12 stretches of road. Finish one end to end and it's logged with its direction, east or west. Route matching works with no signal, past the tunnel and beyond.</p>
+        <h3>Collect</h3>
+        <p>Stickers land as you earn them. Stats keeps the numbers for every segment you've driven, including your worst-ever crawl.</p>
+      </div>
+      <div class="phones">
+        <img src="/assets/app-drive.jpg" alt="The Westbound Drive tab, with a Start Drive button, a 10-week streak and the last drive's distance and delay." width="598" height="1300" loading="lazy" decoding="async">
+        <img src="/assets/app-stickers.jpg" alt="The Westbound Stickers tab, showing Summit seals with progress toward each one." width="598" height="1300" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="basics" aria-labelledby="basics-h">
+      <h2 id="basics-h">The basics</h2>
+      <dl>
+        <div><dt>Price</dt><dd>Free</dd></div>
+        <div><dt>Device</dt><dd>iPhone only, iOS 17.6 or later</dd></div>
+        <div><dt>Available</dt><dd><a href="https://apps.apple.com/us/app/westbound/id6802436294">App Store</a>, United States</dd></div>
+        <div><dt>Account</dt><dd>No account needed</dd></div>
+        <div><dt>Where it counts</dt><dd>I-70 from C-470 to Vail, plus Clear Creek Canyon and the roads to Berthoud Pass, Loveland Pass, Keystone and Breckenridge. It only scores drives on this corridor.</dd></div>
+        <div><dt>Privacy</dt><dd>No advertising, no analytics, no tracking. <a href="/privacy/">Read the policy</a></dd></div>
+        <div><dt>Made by</dt><dd>Kaleb Parker, an independent developer in Colorado</dd></div>
+      </dl>
+      <p class="next"><a href="/roadmap/">See what's built and what's coming &rarr;</a></p>
+    </section>
   </main>
-  <footer>
-    <nav>
+
+  <footer class="wide-footer">
+    <nav aria-label="Footer">
+      <a href="https://apps.apple.com/us/app/westbound/id6802436294">App Store</a>
       <a href="/roadmap/">Roadmap</a>
       <a href="/privacy/">Privacy Policy</a>
       <a href="/support/">Support</a>
